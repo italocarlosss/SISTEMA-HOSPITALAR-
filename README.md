@@ -12,12 +12,22 @@ Turma: [Preencher aqui]
 Projeto desenvolvido para a disciplina de Programação Orientada a Objetos com o professor Lucas boaventura.
 
 ## Descrição
-O sistema simula o gerenciamento de pacientes, medicos, consultas e internações em um hospital.  
-Ele permite cadastrar medicos e pacientes, registrar consultas e controlar internações.
+
+Este sistema foi desenvolvido para gerenciar informações de pacientes em um hospital, permitindo o cadastro, atualização e consulta de dados. Utiliza Java como linguagem principal e armazena dados em arquivos de texto.
+
 
 ## Tecnologias utilizadas
-- Java
-- Git/GitHub 
+- Java 17+
+- Arquivos de texto para persistência de dados
+- IDE: VS Code
+
+## Funcionalidades
+- Cadastro de pacientes
+- Cadastro de medicos
+- Atualização de informações
+- Consulta de dados
+- Persistencia de dados
+- Registrar e liberar Internações
 
 ## Instruções para Compilação e Execução
 Compilação:
@@ -37,7 +47,8 @@ Versão do JAVA utilizada:
 
 ## Prints da Execução
 Elaborando Main:
-![Tela](Imagens/Mainns.png)
+<img width="1366" height="768" alt="Mainns" src="https://github.com/user-attachments/assets/edafa3c3-230f-49af-aaa7-e937cc4214d3" />
+
 
 Cadastro de Médico:
 ![Descrição](Imagens/medicosss.png)
