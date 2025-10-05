@@ -1,7 +1,10 @@
 # Dados do Aluno
 Nome completo: Ítalo Carlos Santana Dias do Nascimento
+
 Matrícula: 242015639
+
 Curso: Orientação e Objetos
+
 Turma: [Preencher aqui]
 
 # Sistema Hospitalar
