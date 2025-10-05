@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -28,7 +33,9 @@ public class Main
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) 
     {
-
+       
+        //persistencia
+         carregarPacientes();
     
 
         //PACIENTES
@@ -51,6 +58,12 @@ public class Main
         ArrayList<Historico> MariaHist = new ArrayList<>();
             MariaHist.add(Historico.CLINICO_GERAL);
 
+        ArrayList<InternaçaoMotivos> JoseInterna = new ArrayList<>();
+            JoseInterna.add(InternaçaoMotivos.SEM_INTERNAÇÕES_REGISTRADAS);
+
+        ArrayList<Historico> JoseHist = new ArrayList<>();
+            JoseHist.add(Historico.CARDIOLOGISTA);
+
         ArrayList<InternaçaoMotivos> EvelynInterna = new ArrayList<>();
             EvelynInterna.add(InternaçaoMotivos.TRABALHO_DE_PARTO);
 
@@ -69,6 +82,13 @@ public class Main
     //pacientes especiais 
 
     PacienteEspecial pe1 = new PacienteEspecial("Maria José", 67, "333-333-333-33", 1700.0, MariaInterna, MariaHist, PlanoS.AMIL);
+        
+    PacienteEspecial pe2 = new PacienteEspecial("José Bezerra", 45, "444-444-444-44", 2000.0, JoseInterna, JoseHist, PlanoS.BRADESCO);
+    JoseInterna.add(InternaçaoMotivos.SEM_INTERNAÇÕES_REGISTRADAS);
+    JoseHist.add(Historico.CARDIOLOGISTA); 
+    listapacientes.add(pe1);
+    listapacientes.add(pe2); 
+
     
     //medicos
     Medicos m1 = new Medicos("Ítalo Carlos ", "989 ", "CLINICO GERAL" , 130.0);
@@ -121,6 +141,7 @@ public class Main
             System.out.println("Digite 3: Cadastrar ou listar Médicos");
             System.out.println("Digite 4: Internações");
             System.out.println("Digite 5: Consultar");
+            System.out.println("Digite 6: Relatórios");
             System.out.println("Digite 0: Sair");
             System.out.println("Escolha uma das opções:");
 
@@ -143,13 +164,16 @@ public class Main
                 case 5:
                     MenuConsultas();
                     break; 
-                case 0:
-                    System.out.println("Saindo..");
-                    return;
-                default:
-                    System.out.println("Opção invalida.");
+                case 6:
+                    MenuRelatorios();
                     break;
-            }
+                            case 0:
+                                System.out.println("Saindo..");
+                                return;
+                            default:
+                                System.out.println("Opção invalida.");
+                                break;
+                        }
                    
                 
         }
@@ -184,6 +208,7 @@ public class Main
                     Paciente Paci = new Paciente(Nome, idade, cpf, new ArrayList<>(),  new ArrayList<>(), saldo);
                     listapacientes.add(Paci);                
                     System.out.println("Paciente cadastrado.");
+                    salvarPacientes();
                     break; 
                 }
         }
@@ -333,7 +358,6 @@ public class Main
                             String situacaoStr = scan.nextLine();
                             Situaçao situaçao = Situaçao.valueOf(situacaoStr);
                           
-                          /////entender melhor esse formato 
                             LocalDateTime entrada = LocalDateTime.now();
                             System.out.print("Data e hora da internaçao (yyyy-MM-dd HH:mm): ");
                             String dataStr = scan.nextLine();
@@ -525,11 +549,103 @@ public class Main
             System.out.println("Consulta agendada com sucesso!");
             System.out.println("Novo saldo do paciente: " + paciente.getSaldo());
         }
-                    }
-                }
-                    
-        
+                     }
+                public static void MenuRelatorios()
+                {
+                    do{
+                        System.out.println("1 - Relatório de Pacientes:");
+                        System.out.println("2 - Relatório de Médicos:");
+                        System.out.println("3 - Relatório de Consultas:");
+                        System.out.println("4 - Relatório de Internações:");
+                        System.out.println("0 - sair");
                         
-
-    
-     
+                        int b = scan.nextInt();
+                        switch (b)
+                        {
+                            case 1:
+                                for (Paciente p : listapacientes){
+                                    if (p instanceof PacienteEspecial) {
+                                        ((PacienteEspecial) p).dadosPacientesEspeciais();
+                                    } else {
+                                        p.dadosPacientes();
+                                    }
+                                    System.out.println("                 ");
+                                }
+                            break;
+                            case 2:
+                                for (Medicos m : medcos){
+                                    m.dadosMedico();
+                                    System.out.println("                  ");
+                                }
+                            break;
+                            case 3:
+                                for (Consultas c : listaConsultas){
+                                    System.out.println(c.toString());
+                                    System.out.println("                  ");
+                                }
+                            break;
+                            case 4:
+                                for (Internaçoes in : listainternados){
+                                    in.dadosInternado();
+                                    System.out.println("     ");
+                                }
+                            break;
+                            case 0:
+                                System.out.println("saindo..");
+                                return;
+                            default:
+                                System.out.println("Opção invalida.");
+                                break;    
+                     } }while(true);        
+                            
+            } 
+        
+        public static void salvarPacientes() {
+    try {
+        FileWriter fw = new FileWriter("pacientes.txt");
+        for (Paciente p : listapacientes) {
+            if (p instanceof PacienteEspecial) {
+                PacienteEspecial pe = (PacienteEspecial) p;
+                fw.write("ESPECIAL;" + pe.getNome() + ";" + pe.getIdade() + ";" + pe.getCpf() + ";" + pe.getSaldo() + ";" + pe.getPlanodesaude() + "\n");
+            } else {
+                fw.write("NORMAL;" + p.getNome() + ";" + p.getIdade() + ";" + p.getCpf() + ";" + p.getSaldo() + "\n");
+            }
+        }
+        fw.close();
+        System.out.println("Pacientes salvos.");
+    } catch (IOException e) {
+        System.out.println("Erro ao salvar pacientes.");
+    }
+}
+public static void carregarPacientes() {
+    try {
+        FileReader fr = new FileReader("pacientes.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String linha;
+        while ((linha = br.readLine()) != null) {
+            String[] partes = linha.split(";");
+            if (partes[0].equals("ESPECIAL")) {
+                String nome = partes[1];
+                int idade = Integer.parseInt(partes[2]);
+                String cpf = partes[3];
+                double saldo = Double.parseDouble(partes[4]);
+                PlanoS plano = PlanoS.valueOf(partes[5]);
+                PacienteEspecial pe = new PacienteEspecial(nome, idade, cpf, saldo, new ArrayList<>(), new ArrayList<>(), plano);
+                listapacientes.add(pe);
+            } else if (partes[0].equals("NORMAL")) {
+                String nome = partes[1];
+                int idade = Integer.parseInt(partes[2]);
+                String cpf = partes[3];
+                double saldo = Double.parseDouble(partes[4]);
+                Paciente p = new Paciente(nome, idade, cpf, new ArrayList<>(), new ArrayList<>(), saldo);
+                listapacientes.add(p);
+            }
+        }
+        br.close();
+        fr.close();
+        System.out.println("Pacientes carregados.");
+    } catch (IOException e) {
+        System.out.println("Erro ao carregar pacientes.");
+    }
+}
+    }

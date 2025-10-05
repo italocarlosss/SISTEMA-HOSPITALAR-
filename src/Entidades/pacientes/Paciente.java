@@ -9,14 +9,16 @@ public class Paciente {
     private String cpf;
     private ArrayList<InternaçaoMotivos> internaçoes;
     private ArrayList<Historico> historicConsultas;
+    private double saldo;
 
-public Paciente(String nome, int idade, String cpf, ArrayList<InternaçaoMotivos> internaçoes, ArrayList<Historico> historicConsultas) {
+public Paciente(String nome, int idade, String cpf, ArrayList<InternaçaoMotivos> internaçoes, ArrayList<Historico> historicConsultas, double saldo){ 
 
 this.nome = nome;
 this.idade = idade;
 this.cpf = cpf;
 this.internaçoes = internaçoes;
 this.historicConsultas = historicConsultas;
+this.saldo = saldo;
 }
 
 public void setNome(String nome)   {
@@ -50,9 +52,23 @@ public void sethistoricConsultas(ArrayList<Historico> historicConsultas)   {
 public ArrayList<Historico> gethistoricConsultas() {
      return historicConsultas;
 }
-    
+public void setSaldo(double saldo)   {
+     this.saldo = saldo;
+}
+public double getSaldo() {
+     return saldo;
+}
+
+public void DinheiroConsulta(double valor) {
+    if (saldo >= valor) {
+        saldo -= valor;
+        System.out.println("Consulta paga com sucesso. Saldo restante: " + saldo);
+    } else {
+        System.out.println("Saldo insuficiente para pagar a consulta.");
+    }
+}
 
 public void dadosPacientes() {
-    System.out.println("Paciente: " + nome + "\nIdade: " + idade + "\nCPF: " + cpf + "\nHistórico de internações:" + internaçoes + "\nHistórico de consultas:" + historicConsultas);
-}     
+    System.out.println("Paciente: " + nome + "\nIdade: " + idade + "\nCPF: " + cpf + "\nSaldo: " + saldo + "\nHistórico de internações:" + internaçoes + "\nHistórico de consultas:" + historicConsultas);
+}
 }
