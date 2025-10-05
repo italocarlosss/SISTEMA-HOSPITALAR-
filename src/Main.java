@@ -395,23 +395,21 @@ public class Main
                             break;
                         } 
                     
-                    case 3:
-                    if (listainternados.isEmpty())
-                {
-                    System.out.print("NUmero do paciente internado: ");
-                    int index = scan.nextInt() - 1;
-                    if (index >= 0 && index < listainternados.size())
-                    {
-                        Internaçoes in = listainternados.get(index);
-                        in.setSaida(LocalDateTime.now());
-                        listainternados.remove(index);
-                        System.out.println("Paciente " + in.getInternado().getNome() + " liberado da internação.");
-                    } 
-                    else 
-                    {
-                        System.out.println("Numero de internação inválido.");
-                    }
-                } 
+                case 3:
+                System.out.println("Liberar internação:");
+                System.out.println("Escolha o paciente para liberar:");
+                for (int i = 0; i < listainternados.size(); i++) {
+                    System.out.println(i + " - " + listainternados.get(i).getInternado().getNome());
+                }
+                int index = scan.nextInt();
+                scan.nextLine();
+                if (index >= 0 && index < listainternados.size()) {
+                    Internaçoes internaçao = listainternados.get(index);
+                    internaçao.setSaida(LocalDateTime.now());
+                    internaçao.setSituaçao(Situaçao.CRITICO);
+                    System.out.println("Internação liberada para o paciente: " + internaçao.getInternado().getNome());
+                    listainternados.remove(index);
+                }
                 else if (b == 0)
                 {
                     System.out.println("Saindo...");
