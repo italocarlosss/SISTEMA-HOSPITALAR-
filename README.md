@@ -102,7 +102,6 @@ HOSPITAL/
 │   │
 │   └── Main.java
 │
-├── hs_err_pid13812.log
 ├── pacientes.txt
 └── README.md
 ```
