@@ -29,19 +29,6 @@ Este sistema foi desenvolvido para gerenciar informações de pacientes em um ho
 - Persistencia de dados
 - Registrar e liberar Internações
 
-## Instruções para Compilação e Execução
-Compilação:
-[Descrever aqui como compilar o projeto. Exemplo: javac Main.java ou o script usado]
-
-Execução:
-[Descrever aqui como executar o projeto. Exemplo: java Main ou o script usado]
-
-Estrutura de Pastas:
-Consultas, Entidades/pacientes, e Internaçoes.
-
-Versão do JAVA utilizada:
-[Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: java 21]
-
 ## Vídeo de Demonstração
 [video:](https://youtu.be/DKAlNRuJlgw)
 
@@ -64,10 +51,16 @@ Eu não tinha me informado direito em relação aos commits, foi saber só 5 dia
 
 ## Instruções para Compilação e Execução
 Compilação:
-javac Main.java
+Clonar repositorio na IDE, VS Code com o comando:
+
+git clone https://github.com/italocarlosss/ep1-OO-2025_2_ITALO_CARLOS.git
+
+Depois, abra a pasta clonada no VS Code com:
+
+cd ep1-OO-2025_2_ITALO_CARLOS
 
 Execução:
-java Main
+src/Main.java -----> Clicar em "Run Java"
 
 Estrutura de Pastas:
 
