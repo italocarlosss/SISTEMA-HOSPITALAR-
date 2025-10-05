@@ -71,6 +71,7 @@ java Main
 
 Estrutura de Pastas:
 
+```
 HOSPITAL/
 │
 ├── Imagens/
@@ -104,14 +105,10 @@ HOSPITAL/
 ├── hs_err_pid13812.log
 ├── pacientes.txt
 └── README.md
-
+```
 
 Versão do JAVA utilizada:
 Java 17.0.8
 
 ## Contato
-<<<<<<< HEAD
 Email: itacarlosnas@hotmail.com
-=======
-Email: itacarlosnas@hotmail.com
->>>>>>> 84181179059b75768d7a24e3733d7c4b145a05ac
