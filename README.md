@@ -46,18 +46,14 @@ Versão do JAVA utilizada:
 [video:](https://youtu.be/DKAlNRuJlgw)
 
 ## Prints da Execução
-Elaborando Main:
-<img width="1366" height="768" alt="Mainns" src="https://github.com/user-attachments/assets/edafa3c3-230f-49af-aaa7-e937cc4214d3" />
+Menu principal:
+<img width="341" height="171" alt="Captura de tela 2025-10-05 165613" src="https://github.com/user-attachments/assets/91527c36-bfa0-4d97-b984-4eb966a3b5e8" />
 
+Cadastro de Paciente:
+<img width="343" height="381" alt="Captura de tela 2025-10-05 165714" src="https://github.com/user-attachments/assets/b95c6fee-db36-4721-8d97-2d96b1dcf763" />
 
-Cadastro de Médico:
-![Descrição](Imagens/medicosss.png)
-
-Relatório de ?:
-![Menutestando](Imagens/MenuTeste.png)
-
-## Contato
-Email: itacarlosnas@hotmail.com
+Menu Relatórios:
+<img width="340" height="254" alt="Captura de tela 2025-10-05 165745" src="https://github.com/user-attachments/assets/8a0264d1-1596-4ddd-800d-f9dae77625a3" />
 
 ## Observações (Extras ou Dificuldades)
 Foi um grande desafio (até demais) pra um primeiro trabalho não só de orientação emm objetos, mas tambem primeiro em java.
@@ -66,5 +62,52 @@ Na criação das classes foi tranquilo, mas na main foi erro atras de erro o tem
 
 Eu não tinha me informado direito em relação aos commits, foi saber só 5 dias antes da entrega do projeto, ainda assim dividi os commits em partes ate o dia do trabalho, mas ja estava produzindo a quase 1 mês como mostra no print de execução.
 
-## Como executar
-1. Pela classe main, se atentando aos formatos aceitos pelo codigo
+## Instruções para Compilação e Execução
+Compilação:
+javac Main.java
+
+Execução:
+java Main
+
+Estrutura de Pastas:
+
+HOSPITAL/
+│
+├── Imagens/
+│   ├── Mainns.png
+│   ├── medicosss.png
+│   └── MenuTeste.png
+│
+├── lib/
+│
+├── src/
+│   ├── Consultas/
+│   │   ├── Confirmacao.java
+│   │   ├── Consultas.java
+│   │   ├── Medicamentos.java
+│   │   └── Salas.java
+│   │
+│   ├── Entidades/pacientes/
+│   │   ├── Historico.java
+│   │   ├── Medicos.java
+│   │   ├── Paciente.java
+│   │   ├── PacienteEspecial.java
+│   │   └── PlanoS.java
+│   │
+│   ├── pacients/
+│   │   ├── InternacaoMotivos.java
+│   │   ├── Internacoes.java
+│   │   └── Situacao.java
+│   │
+│   └── Main.java
+│
+├── hs_err_pid13812.log
+├── pacientes.txt
+└── README.md
+
+
+Versão do JAVA utilizada:
+Java 17.0.8
+
+## Contato
+Email: itacarlosnas@hotmail.com
