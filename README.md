@@ -13,7 +13,7 @@ Projeto desenvolvido para a disciplina de Programação Orientada a Objetos com 
 
 ## Descrição
 
-Este sistema foi desenvolvido para gerenciar informações de pacientes em um hospital, permitindo o cadastro, atualização e consulta de dados. Utiliza Java como linguagem principal e armazena dados em arquivos de texto.
+Este sistema foi desenvolvido para gerenciar informações de pacientes em um hospital, permitindo o cadastro, atualização e consulta de dados. Utiliza Java como linguagem principal e armazena dados em arquivos de texto. 
 
 
 ## Tecnologias utilizadas
