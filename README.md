@@ -5,7 +5,7 @@ Matrícula: 242015639
 
 Curso: Orientação e Objetos
 
-Turma: [Preencher aqui]
+Turma: 2025.2
 
 # Sistema Hospitalar
 
@@ -95,7 +95,6 @@ HOSPITAL/
 │   │
 │   └── Main.java
 │
-├── hs_err_pid13812.log
 ├── pacientes.txt
 └── README.md
 ```
